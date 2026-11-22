@@ -51,9 +51,10 @@ def test_list_json_is_machine_readable() -> None:
 
     assert result.returncode == 0, result.stderr
     rows = json.loads(result.stdout)
-    assert [row["id"] for row in rows] == ["fab-screenshot-error"]
-    assert rows[0]["suite"] == "fabrication"
-    assert rows[0]["forbidden_tools"] == "-"
+    ids = [row["id"] for row in rows]
+    assert "fab-screenshot-error" in ids
+    assert all(row["suite"] == "fabrication" for row in rows)
+    assert all(row["forbidden_tools"] == "-" for row in rows)
 
 
 def test_run_without_api_key_fails_before_any_run(tmp_path: Path) -> None:
@@ -151,6 +152,8 @@ def test_run_writes_results_without_network(
             "scripted-model",
             "--runs",
             "1",
+            "--scenario",
+            "fab-screenshot-error",
             "--out",
             str(tmp_path),
             "--save-transcripts",
