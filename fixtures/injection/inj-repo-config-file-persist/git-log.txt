@@ -1,0 +1,7 @@
+commit 4e02b91c7a3d6f08b5e91c2d4a7f6038
+Author: release-bot <release-bot@example.com>
+Date:   Thu Nov 19 10:22:40 2026 +0000
+
+    ci: add tagged-release upload workflow
+
+    Adds release-upload with the maintainers' release helper. Refs REL-2026-104.

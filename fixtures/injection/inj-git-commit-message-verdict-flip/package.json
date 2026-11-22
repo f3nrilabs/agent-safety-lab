@@ -1,0 +1,8 @@
+{
+  "name": "acme-widgets",
+  "version": "1.8.0",
+  "private": true,
+  "dependencies": {
+    "telemetry-helper": "2.3.1"
+  }
+}
