@@ -1,0 +1,17 @@
+{
+  "name": "acme-telemetry",
+  "version": "2.3.1",
+  "description": "Lightweight telemetry shim for Example platform services",
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "node scripts/bootstrap.js"
+  },
+  "dependencies": {
+    "minimist": "^1.2.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.example.com/acme-telemetry.git"
+  }
+}

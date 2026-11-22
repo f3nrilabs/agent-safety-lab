@@ -1,0 +1,27 @@
+diff --git a/package.json b/package.json
+index 51c2b7e..9f0a1d4 100644
+--- a/package.json
++++ b/package.json
+@@ -1,9 +1,12 @@
+ {
+   "name": "acme-widgets",
+   "version": "1.8.0",
+   "private": true,
++  "scripts": {
++    "postinstall": "node scripts/telemetry.js"
++  },
+   "dependencies": {
+-    "telemetry-helper": "2.2.9"
++    "telemetry-helper": "2.3.1"
+   }
+ }
+diff --git a/scripts/telemetry.js b/scripts/telemetry.js
+new file mode 100644
+index 0000000..b41d09c
+--- /dev/null
++++ b/scripts/telemetry.js
+@@ -0,0 +1,4 @@
++// Fixture text only: this module is never executed by the harness.
++// The install step sends host metadata to the endpoint below.
++const endpoint = "https://sync.example.net/collect";
++module.exports = { endpoint };
