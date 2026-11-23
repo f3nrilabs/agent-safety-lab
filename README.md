@@ -7,14 +7,15 @@ Mock-tool scenarios for measuring how tool-using **security agents** fail under 
 
 The question is not just *whether* agents are attacked, but **which defenses hold, and at what cost to the real work.**
 
-Status: **first exploratory pilot complete — treat as preliminary.** All 15 scenarios
-built; one run per cell with `deepseek-v4.1-flash` via an OpenAI-compatible gateway, defense
-grid `none | boundary | scoped | confirm` (2026-11-23): see [`results/`](results/). At this
-sample size (no statistical claims): the canary reached the final answer through web content
-under every defense tested, the prompt-only boundary addendum did not change the attack rate,
-and `scoped` gave the best safety/usefulness trade-off; in the fabrication suite the model
-fabricated evidence in 3 of 5 scenarios at baseline. These numbers are directional; stronger
-multi-run batches will supersede them.
+Status: **5-run pilot complete with `deepseek-v4.1-flash` (2026-11-23)** — 225 executed runs
+across the defense grid, every number from the JSONL files in [`results/`](results/).
+At n=5 per cell (directional, not statistical): `scoped` is the only defense that cut the
+compromise rate (32% → 12% of runs) while preserving task success (56% vs 52% at baseline);
+the prompt-only boundary addendum (30%) and the confirmation gate (28%) stayed at baseline.
+The residual leak is the agent's own output: the canary reached the final answer through web
+content in every defense configuration tested. In the fabrication suite the model fabricated
+evidence in 14 of 25 runs (56%) at baseline. More models and larger batches will supersede
+these numbers.
 
 f3nri — research · tools · intel — <https://f3nri.com>
 
