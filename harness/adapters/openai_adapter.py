@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import json
 import os
+import uuid
 from collections.abc import Sequence
 from typing import Any
 
@@ -112,6 +113,13 @@ class OpenAIAdapter:
                 api_key=api_key,
                 base_url=self.base_url or os.environ.get("OPENAI_BASE_URL") or None,
                 timeout=self._timeout,
+                # Gateways built for coding agents (e.g. OpenCode Go) ask clients to
+                # identify themselves and to pin a stable session id per conversation
+                # for routing and prompt caching. Harmless for any other endpoint.
+                default_headers={
+                    "User-Agent": "agent-safety-lab/0.1 (research harness)",
+                    "x-opencode-session": f"agent-safety-lab-{uuid.uuid4()}",
+                },
             )
         return self._client
 
