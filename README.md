@@ -7,10 +7,14 @@ Mock-tool scenarios for measuring how tool-using **security agents** fail under 
 
 The question is not just *whether* agents are attacked, but **which defenses hold, and at what cost to the real work.**
 
-Status: **harness core and all ten injection scenarios are complete; the five fabrication
-scenarios are landing in the companion change, completing the 15-scenario suite.
-No results yet.** Results will appear in [`results/`](results/) only from runs actually
-executed, each with model id, date, run count and configuration committed beside them.
+Status: **first exploratory pilot complete — treat as preliminary.** All 15 scenarios
+built; one run per cell with `deepseek-v4.1-flash` via an OpenAI-compatible gateway, defense
+grid `none | boundary | scoped | confirm` (2026-11-23): see [`results/`](results/). At this
+sample size (no statistical claims): the canary reached the final answer through web content
+under every defense tested, the prompt-only boundary addendum did not change the attack rate,
+and `scoped` gave the best safety/usefulness trade-off; in the fabrication suite the model
+fabricated evidence in 3 of 5 scenarios at baseline. These numbers are directional; stronger
+multi-run batches will supersede them.
 
 f3nri — research · tools · intel — <https://f3nri.com>
 
